@@ -1,0 +1,1 @@
+select*from workintech-bootcamp-atakan-can.thelook_ecommerce.users

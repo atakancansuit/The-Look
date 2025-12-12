@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: stg_order_items
+    description: siparişlerin içeriğindeki ürün bilgileri, fiyatları, teslim durumu ve tarihleri
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    description: her siparişe özel id ve şiparişin içinde kaç ürün olduğu
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_products
+    description: firmanın sahip olduğu ürünler
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_users
+    description: siteye kayıtlı kullanıcıların isim, soyisim, email, lokasyon ve şirketi nerden bulduğunun bilgileri
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: int_customer_segment
+    description: müşterilerin isim, soyisim, cinsiyet, yaş ve yaş segmenti bilgileri
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: int_orders_products
+    description: sipariş başına elde edilen kar.
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: age_group_distribition_by_traffic_source
+    description: Kullanıcıların siteye ne aracılığıyla geldiği, bu kaynaklardan kaç müşter geldikleri,
+                 bu müşterilerin yaş segmentine göre trafik kaynaklarındaki payları hesaplanmıştır
+    columns:
+      - name: traffic_source
+      - name: age_group 
+      - name: nb_of_group
+        description: spesifik yaş grubundan kaç kullanıcı geldiğini belirtir
+      - name: share_of_group
+        description: Spesifik yaş grubunuın trafiği spesifik kaynaktan gelen trafiğe oranı
+  - name: profit_by_agegroup_and_gender
+    description: Yaş gruplarına ve bu yaş gruplarındaki cinsiyetlere göre elde edilen kar
+  - name: profit_by_category
+    description: Ürün kategorisine göre elde edilen kar
+  - name: profit_by_year_month
+    description: Ay/Yıl'a göre elde edilen kar
+    
